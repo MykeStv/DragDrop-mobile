@@ -1,9 +1,24 @@
 import React from 'react'
+import { ItemTypes } from './Constants'
+import { useDrag } from 'react-dnd'
 
 const Phone = ({ name }) => {
 
-    return (
-        <div className='card phone' style={{ width: "12rem" }} >
+    const [{ isDragging }, drag] = useDrag(() => ({
+        type: ItemTypes.PHONE,
+        collect: monitor => ({
+            isDraggin: !!monitor.isDragging(),
+        }),
+    }))
+
+    const opacity = isDragging ? 0.4 : 1;
+    const style = {
+        opacity: opacity
+    };
+    const phoneClass = isDragging ? 'ui card phone drag' : 'ui card phone';
+
+    return drag(
+        <div className={'card ' + phoneClass} style={{ width: "12rem" }} >
             <div className=' '>
                 <img src="/images/phone.jpg" className='img-thumbnail' />
             </div>

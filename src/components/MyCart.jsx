@@ -2,8 +2,8 @@ import React from 'react'
 
 const MyCart = () => {
     return (
-        <div>
-            <div className='cards phone ' style={{ width: "18rem" }}>
+        <div >
+            <div className='cards phone ' style={{ width: "15rem" }}>
                 <div className="card ">
                     <img
                         className='card-img-top '

@@ -2,6 +2,8 @@ import React from 'react'
 import Phone from './Phone'
 import ShoppingCart from './ShoppingCart'
 import MyCart from './MyCart'
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 const Container = ({ phones }) => {
 
@@ -19,21 +21,25 @@ const Container = ({ phones }) => {
                     <MyCart />
                 </div>
                 <div className="right floated five wide column">
-                    <div className="ui row">
-                        <h3 className="brand-heading">Phone Brands</h3>
-                    </div>
-                    <div className="ui row">
-                        <div className="shopping-list">
-                            {
-                                Object.keys(phones).map(phone => (
-                                    <Phone key={phone} name={phone.brand} />
-                                ))
-                            }
+                    <DndProvider backend={HTML5Backend}>
+
+                        <div className="ui row">
+                            <h3 className="brand-heading">Phone Brands</h3>
                         </div>
-                        <div className="shopping-cart">
-                            <ShoppingCart />
+                        <div className="ui row">
+                            <div className="shopping-list">
+                                {
+                                    Object.keys(phones).map(phone => (
+                                        <Phone key={phone} name={phone.brand} />
+                                    ))
+                                }
+                            </div>
+                            <div className="shopping-cart">
+                                <ShoppingCart />
+                            </div>
                         </div>
-                    </div>
+
+                    </DndProvider>
                 </div>
 
             </div>
