@@ -3,11 +3,12 @@ import React from 'react'
 const MyCart = () => {
     return (
         <div>
-            <div className='cards'>
-                <div className="card centered">
+            <div className='cards phone ' style={{ width: "18rem" }}>
+                <div className="card ">
                     <img
-                        className='card-img-top'
+                        className='card-img-top '
                         src="/images/phone.jpg"
+
                     />
                     <div className="card-body">
 
@@ -29,7 +30,7 @@ const MyCart = () => {
 
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
